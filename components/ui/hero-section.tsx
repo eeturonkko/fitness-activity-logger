@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function HeroSection() {
   return (
     <section>
-      <main className=" bg-gray-100 mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className=" bg-gray-100 mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="container grid lg:grid-cols-2 gap-12">
           <div className="space-y-6">
             <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
@@ -21,13 +21,10 @@ export default function HeroSection() {
             <Image
               alt="Fitness illustration"
               className="rounded-xl shadow-lg drop-shadow-2xl"
-              height="400"
               src={HeroPicture}
-              style={{
-                aspectRatio: "400/400",
-                objectFit: "cover",
-              }}
-              width="400"
+              placeholder="blur"
+              //objectFit="cover"
+              width="550"
             />
           </div>
         </div>
