@@ -15,7 +15,7 @@ export default function HeroSection() {
               Track, analyze, and plan your fitness activities with the Fitness
               Activity Logger. Join us and take control of your fitness journey.
             </p>
-            <Button>Get Started</Button>
+            <Button className="rounded-xl">Get Started</Button>
           </div>
           <div className="flex justify-center items-center">
             <Image
@@ -23,7 +23,6 @@ export default function HeroSection() {
               className="rounded-xl shadow-lg drop-shadow-2xl"
               src={HeroPicture}
               placeholder="blur"
-              //objectFit="cover"
               width="550"
             />
           </div>

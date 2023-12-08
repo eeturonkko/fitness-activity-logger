@@ -29,7 +29,7 @@ export default function Header() {
           >
             Community
           </Link>
-          <Button variant="outline">Sign In</Button>
+          <Button className="rounded-xl">Sign In</Button>
         </div>
       </div>
     </header>
