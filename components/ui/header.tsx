@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Header() {
   return (
-    <header className="py-6 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 shadow">
+    <header className="py-6 px-4 sm:px-6 lg:px-8 shadow">
       <div className="flex items-center justify-between">
         <Link href="#">
           <DumbbellIcon className="w-8 h-8" />
