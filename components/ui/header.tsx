@@ -29,7 +29,6 @@ export default function Header() {
           >
             Community
           </Link>
-          <Button className="rounded-xl">Sign In</Button>
         </div>
       </div>
     </header>
