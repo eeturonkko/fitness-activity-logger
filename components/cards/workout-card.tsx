@@ -29,7 +29,6 @@ function WorkoutCard({
           </div>
           <div className="flex items-center justify-between">
             <Badge className="text-sm">{duration} minutes</Badge>
-
             <span className="text-sm text-gray-500">{formattedDate}</span>
           </div>
         </CardHeader>
