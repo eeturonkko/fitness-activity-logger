@@ -5,6 +5,7 @@ import SubmitButton from "./submit-button";
 import { createNewWorkoutAction } from "@/actions/workoutActions";
 
 function AddNewWorkoutForm() {
+  //* Form submission handler
   async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.target as HTMLFormElement;

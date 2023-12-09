@@ -1,19 +1,24 @@
 "use server";
 import { workouts } from "@/db/schema";
 import { db } from "@/db";
-import { useRef } from "react";
+import { z } from "zod";
 
 export async function createNewWorkoutAction(formData: FormData) {
-  // TODO: Validate form data
+  //* Schema for form data validation
+  const workoutSchema = z.object({
+    workoutType: z.string(),
+    workoutDate: z.string(),
+    duration: z.string(),
+    caloriesBurned: z.string(),
+  });
+  //* Parse form data
+  const parsedWorkoutData = workoutSchema.parse({
+    workoutType: formData.get("workout-type"),
+    workoutDate: formData.get("date"),
+    duration: formData.get("duration"),
+    caloriesBurned: formData.get("calories"),
+  });
 
-  //* Insert form data values to object "workout"
-  const workout = {
-    workoutType: formData.get("workout-type") as string,
-    workoutDate: formData.get("date") as string,
-    duration: formData.get("duration") as string,
-    caloriesBurned: formData.get("calories") as string,
-  };
-
-  //* Insert object "workout" to database
-  await db.insert(workouts).values(workout);
+  //* Insert parsed data to database
+  await db.insert(workouts).values(parsedWorkoutData);
 }
