@@ -1,20 +1,24 @@
 "use client";
-import { useRef } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { createNewWorkoutAction } from "@/actions/workoutActions";
 import SubmitButton from "./submit-button";
+import { createNewWorkoutAction } from "@/actions/workoutActions";
 
 function AddNewWorkoutForm() {
-  const formRef = useRef<HTMLFormElement>(null);
+  async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    await createNewWorkoutAction(formData);
+    form.reset();
+  }
+
   return (
     <>
       <h1 className="text-3xl font-bold">Workouts</h1>
       <form
         className="w-full max-w-md bg-white shadow rounded-lg p-6 space-y-4"
-        action={createNewWorkoutAction}
-        ref={formRef}
+        onSubmit={handleOnSubmit}
       >
         <div className="space-y-2">
           <Label htmlFor="workout-type">Workout Type</Label>
