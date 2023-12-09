@@ -1,8 +1,10 @@
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { Workout } from "@/db/schema";
+import { deleteWorkoutAction } from "@/actions/workoutActions";
 
 function WorkoutCard({
+  workoutId,
   workoutType,
   workoutDate,
   duration,
@@ -21,7 +23,9 @@ function WorkoutCard({
         <CardHeader>
           <div className="flex justify-between items-center">
             <CardTitle>{workoutType}</CardTitle>
-            <div>X</div>
+            <form action={deleteWorkoutAction.bind(null, workoutId)}>
+              <button>X</button>
+            </form>
           </div>
           <div className="flex items-center justify-between">
             <Badge className="text-sm">{duration} minutes</Badge>

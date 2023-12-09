@@ -2,6 +2,8 @@
 import { workouts } from "@/db/schema";
 import { db } from "@/db";
 import { z } from "zod";
+import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 
 export async function createNewWorkoutAction(formData: FormData) {
   //* Schema for form data validation
@@ -21,4 +23,10 @@ export async function createNewWorkoutAction(formData: FormData) {
 
   //* Insert parsed data to database
   await db.insert(workouts).values(parsedWorkoutData);
+  revalidatePath("/workouts");
+}
+
+export async function deleteWorkoutAction(workoutId: number) {
+  await db.delete(workouts).where(eq(workouts.workoutId, workoutId));
+  revalidatePath("/workouts");
 }
