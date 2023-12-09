@@ -16,7 +16,7 @@ function AddNewWorkoutForm() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold">Add you latest workout</h1>
+      <h1 className="text-3xl font-bold">Add your latest workout</h1>
       <form
         className="w-full max-w-md bg-white shadow rounded-lg p-6 space-y-4"
         onSubmit={handleOnSubmit}
