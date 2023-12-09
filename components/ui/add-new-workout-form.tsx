@@ -9,17 +9,25 @@ function AddNewWorkoutForm() {
       <form className="w-full max-w-md bg-white shadow rounded-lg p-6 space-y-4">
         <div className="space-y-2">
           <Label htmlFor="workout-type">Workout Type</Label>
-          <Input id="workout-type" placeholder="Running" required />
+          <Input
+            id="workout-type"
+            placeholder="Push day, Pull day etc..."
+            required
+          />
         </div>
         <div className="space-y-2">
           <Label htmlFor="duration">Duration (in minutes)</Label>
           <Input
             id="duration"
             min="0"
-            placeholder="30"
+            placeholder="60"
             required
             type="number"
           />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="calories">Calories burned</Label>
+          <Input id="calories" min="0" placeholder="0" required type="number" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="date">Date</Label>
