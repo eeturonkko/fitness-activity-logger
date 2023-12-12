@@ -18,7 +18,7 @@ export async function createNewWorkoutAction(formData: FormData) {
     workoutType: formData.get("workout-type"),
     workoutDate: formData.get("date"),
     duration: formData.get("duration"),
-    caloriesBurned: formData.get("calories"),
+    caloriesBurned: Number(formData.get("calories")),
   });
 
   //* Insert parsed data to database
