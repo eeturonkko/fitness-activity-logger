@@ -21,7 +21,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
 
       const margin = { top: 20, right: 100, bottom: 40, left: 150 };
       const width = 800 - margin.left - margin.right;
-      const height = 500 - margin.top - margin.bottom;
+      const height = 280 - margin.top - margin.bottom;
 
       // Create a root element
       const g = svg
