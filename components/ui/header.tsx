@@ -3,7 +3,7 @@ import DumbbellIcon from "./dumbbell-icon";
 
 export default function Header() {
   return (
-    <header className="py-6 px-4 sm:px-6 lg:px-8 shadow">
+    <header className="py-6 px-4 sm:px-6 lg:px-8 ">
       <div className="flex items-center justify-around">
         <Link href="/">
           <DumbbellIcon className="w-8 h-8" />
