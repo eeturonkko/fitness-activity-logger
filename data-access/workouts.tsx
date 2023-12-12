@@ -14,10 +14,14 @@ export async function getLastFourWorkouts() {
 }
 
 export async function getWorkoutTypeAndCaloriesBurned() {
-  return await db
+  const result = await db
     .select({
       workoutType: workouts.workoutType,
-      caloriesBurned: avg(workouts.caloriesBurned),
+      averageCaloriesBurned: sql`AVG(${workouts.caloriesBurned})`
+        .mapWith(Number)
+        .as("averageCaloriesBurned"),
     })
-    .from(workouts);
+    .from(workouts)
+    .groupBy(sql`${workouts.workoutType}`);
+  return result;
 }

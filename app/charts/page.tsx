@@ -3,7 +3,7 @@ import { getWorkoutTypeAndCaloriesBurned } from "@/data-access/workouts";
 
 async function ChartsPage() {
   const workouts = await getWorkoutTypeAndCaloriesBurned();
-  //* ParseInt calories burned to int
+  console.log(workouts);
 
   return (
     <div className="container h-screen">

@@ -4,6 +4,7 @@ import { getLastFourWorkouts } from "@/data-access/workouts";
 
 async function WorkoutsPage() {
   const workouts = await getLastFourWorkouts();
+
   return (
     <div className="flex flex-col items-center mx-auto p-6 space-y-4">
       <AddNewWorkoutForm />

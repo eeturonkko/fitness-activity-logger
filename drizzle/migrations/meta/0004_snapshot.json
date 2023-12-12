@@ -1,0 +1,49 @@
+{
+  "id": "8e2b4791-dbf0-42c2-b73f-8d09bd350b1f",
+  "prevId": "06fdda28-a73e-4254-8215-2af6e8ef49ad",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "workouts": {
+      "name": "workouts",
+      "schema": "",
+      "columns": {
+        "workoutId": {
+          "name": "workoutId",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "workoutType": {
+          "name": "workoutType",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "workoutDate": {
+          "name": "workoutDate",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "duration": {
+          "name": "duration",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

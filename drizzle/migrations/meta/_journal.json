@@ -29,6 +29,20 @@
       "when": 1702395604963,
       "tag": "0003_far_william_stryker",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1702399068566,
+      "tag": "0004_bouncy_molten_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1702399107064,
+      "tag": "0005_violet_whiplash",
+      "breakpoints": true
     }
   ]
 }

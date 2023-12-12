@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
 interface WorkoutData {
-  workoutType: string; // Make sure the name matches your data structure
-  caloriesBurned: number;
+  workoutType: string;
+  averageCaloriesBurned: number;
 }
 
 interface HorizontalBarChartProps {
@@ -37,7 +37,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
 
       const x = d3
         .scaleLinear()
-        .domain([0, d3.max(data, (d) => d.caloriesBurned) ?? 0])
+        .domain([0, d3.max(data, (d) => d.averageCaloriesBurned) ?? 0])
         .range([0, width]);
 
       // Colors
@@ -53,7 +53,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
         .attr("y", (d) => y(d.workoutType)!)
         .attr("height", y.bandwidth())
         .attr("x", 0)
-        .attr("width", (d) => x(d.caloriesBurned));
+        .attr("width", (d) => x(d.averageCaloriesBurned));
 
       // Add the Y Axis
       g.append("g").call(d3.axisLeft(y));
@@ -70,9 +70,9 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
         .append("text")
         .attr("class", "label")
         .attr("y", (d) => y(d.workoutType)! + y.bandwidth() / 2)
-        .attr("x", (d) => x(d.caloriesBurned) + 3)
+        .attr("x", (d) => x(d.averageCaloriesBurned) + 3)
         .attr("dy", ".35em")
-        .text((d) => d.caloriesBurned);
+        .text((d) => d.averageCaloriesBurned);
     }
   }, [data]); // Only re-run the effect if new data comes in
 
