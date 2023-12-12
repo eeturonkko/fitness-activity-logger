@@ -11,7 +11,7 @@ export async function createNewWorkoutAction(formData: FormData) {
     workoutType: z.string(),
     workoutDate: z.string(),
     duration: z.string(),
-    caloriesBurned: z.string(),
+    caloriesBurned: z.number(),
   });
   //* Parse form data
   const parsedWorkoutData = workoutSchema.parse({
