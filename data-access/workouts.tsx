@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { avg, sql } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 import { workouts } from "@/db/schema";
 
 export async function getAllWorkouts() {
@@ -23,4 +23,8 @@ export async function getWorkoutTypeAndCaloriesBurned() {
     })
     .from(workouts)
     .groupBy(sql`${workouts.workoutType}`);
+}
+
+export async function getWorkoutsForLastMonth() {
+  //TODO: Implement this function
 }
