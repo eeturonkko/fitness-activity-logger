@@ -49,10 +49,13 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
         .enter()
         .append("rect")
         .attr("class", "bar")
-        .attr("fill", (d, i) => color(i.toString())) // Assign a color based on index
+        .attr("fill", (d, i) => color(i.toString()))
         .attr("y", (d) => y(d.workoutType)!)
         .attr("height", y.bandwidth())
         .attr("x", 0)
+        .attr("width", 0) // start with 0 width
+        .transition() // apply a transition
+        .duration(1000) // duration of the transition
         .attr("width", (d) => x(d.averageCaloriesBurned));
 
       // Add the Y Axis
@@ -63,11 +66,13 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x));
 
-      // Optional: Add labels to the bars
       g.selectAll(".label")
         .data(data)
         .enter()
         .append("text")
+        .attr("width", 0) // start with 0 width
+        .transition() // apply a transition
+        .duration(1000) // duration of the transition
         .attr("class", "label")
         .attr("y", (d) => y(d.workoutType)! + y.bandwidth() / 2)
         .attr("x", (d) => x(d.averageCaloriesBurned) + 3)
