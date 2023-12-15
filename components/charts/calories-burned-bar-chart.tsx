@@ -19,7 +19,7 @@ const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data }) => {
       const svg = d3.select(d3Container.current);
       svg.selectAll("*").remove(); // Clear svg content before adding new elements
 
-      const margin = { top: 20, right: 100, bottom: 40, left: 150 };
+      const margin = { top: 0, right: 100, bottom: 0, left: 150 };
       const width = 800 - margin.left - margin.right;
       const height = 280 - margin.top - margin.bottom;
 
