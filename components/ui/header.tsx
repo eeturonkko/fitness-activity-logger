@@ -6,26 +6,20 @@ export default function Header() {
     <header className="py-6 px-4 sm:px-6 lg:px-8 ">
       <div className="flex items-center justify-around">
         <Link href="/">
-          <DumbbellIcon className="w-8 h-8" />
-          <span className="sr-only">Fitness Activity Logger</span>
+          <div className="flex items-center gap-4">
+            <DumbbellIcon className="w-8 h-8" />
+            <span className="sr-only">Fitness Activity Logger</span>
+            <span className="text-lg font-semibold">Fitness Logger</span>
+          </div>
         </Link>
         <div className="hidden sm:flex items-center space-x-4">
-          <Link
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/workouts"
-          >
+          <Link className="text-gray-500 hover:text-gray-900 " href="/workouts">
             Workouts
           </Link>
-          <Link
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="/charts"
-          >
+          <Link className="text-gray-500 hover:text-gray-900 " href="/charts">
             Charts
           </Link>
-          <Link
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="#"
-          >
+          <Link className="text-gray-500 hover:text-gray-900 " href="#">
             Goals
           </Link>
         </div>
