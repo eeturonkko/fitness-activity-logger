@@ -1,11 +1,8 @@
-import { Workout } from "@/db/schema";
 import WorkoutCard from "../cards/workout-card";
+import { getLastFourWorkouts } from "@/data-access/workouts";
 
-type WorkoutsListProps = {
-  workouts: Workout[];
-};
-
-function WorkoutsList({ workouts }: WorkoutsListProps) {
+async function WorkoutsList() {
+  const workouts = await getLastFourWorkouts();
   return (
     <div className="w-full max-w-3xl space-y-4 hover:">
       <h1>Your latest workouts</h1>
