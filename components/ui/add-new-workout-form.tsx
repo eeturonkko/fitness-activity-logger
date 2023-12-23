@@ -13,11 +13,11 @@ function AddNewWorkoutForm() {
     const formData = new FormData(form);
     try {
       await createNewWorkoutAction(formData);
+      toast("Workout added successfully!");
       form.reset();
     } catch (error) {
       console.log(error);
-    } finally {
-      toast("Workout added successfully!");
+      toast("Something went wrong. Please try again later.");
     }
   }
 
