@@ -4,6 +4,7 @@ import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

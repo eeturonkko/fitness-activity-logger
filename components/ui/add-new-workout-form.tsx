@@ -3,6 +3,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import SubmitButton from "./submit-button";
 import { createNewWorkoutAction } from "@/actions/workoutActions";
+import { toast } from "sonner";
 
 function AddNewWorkoutForm() {
   //* Form submission handler
@@ -10,8 +11,14 @@ function AddNewWorkoutForm() {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    await createNewWorkoutAction(formData);
-    form.reset();
+    try {
+      await createNewWorkoutAction(formData);
+      form.reset();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      toast("Workout added successfully!");
+    }
   }
 
   return (
