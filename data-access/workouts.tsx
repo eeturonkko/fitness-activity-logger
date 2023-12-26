@@ -2,8 +2,14 @@ import { db } from "@/db";
 import { sql } from "drizzle-orm";
 import { workouts } from "@/db/schema";
 
-export async function getAllWorkouts() {
-  return await db.query.workouts.findMany();
+export async function getAllWorkouts(page = 1, itemsPerPage = 4) {
+  const offset = (page - 1) * itemsPerPage;
+  const limit = itemsPerPage;
+  return await db.query.workouts.findMany({
+    orderBy: (workouts, { desc }) => [desc(workouts.workoutDate)],
+    limit,
+    offset,
+  });
 }
 
 export async function getLastFourWorkouts() {
