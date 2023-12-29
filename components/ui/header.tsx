@@ -19,8 +19,14 @@ export default function Header() {
           <Link className="text-gray-500 hover:text-gray-900 " href="/charts">
             Charts
           </Link>
-          <Link className="text-gray-500 hover:text-gray-900 " href="#">
+          <Link className="text-gray-500 hover:text-gray-900 " href="/goals">
             Goals
+          </Link>
+          <Link
+            className="text-gray-500 hover:text-gray-900 "
+            href="/exercises"
+          >
+            Exercises
           </Link>
         </div>
       </div>
