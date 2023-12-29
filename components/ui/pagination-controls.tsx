@@ -8,7 +8,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
 interface PaginationControlsProps {
@@ -21,15 +21,16 @@ export function PaginationControls({
   totalPages,
 }: PaginationControlsProps) {
   const pathname = usePathname();
-  const router = useRouter();
-
   const [isClient, setIsClient] = useState(false);
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams);
+
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   if (!Number.isInteger(totalPages) || totalPages < 1) {
-    totalPages = 1; // default value or handle it as you see fit
+    totalPages = 1;
   }
 
   return (
@@ -40,37 +41,16 @@ export function PaginationControls({
             {
               <PaginationItem>
                 <PaginationPrevious
-                  onClick={(e) => {
-                    e.preventDefault();
-                    router.push(`${pathname}?page=${currentPage - 1}`);
-                  }}
+                  scroll={false}
                   href={`${pathname}?page=${currentPage - 1}`}
                 />
               </PaginationItem>
             }
 
-            {[...Array(totalPages).keys()].map((page) => (
-              <PaginationItem key={page + 1}>
-                <PaginationLink
-                  href={`${pathname}?page=${page + 1}`}
-                  isActive={currentPage === page + 1}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    router.push(`${pathname}?page=${page + 1}`);
-                  }}
-                >
-                  {page + 1}
-                </PaginationLink>
-              </PaginationItem>
-            ))}
-
             {
               <PaginationItem>
                 <PaginationNext
-                  onClick={(e) => {
-                    e.preventDefault();
-                    router.push(`${pathname}?page=${currentPage + 1}`);
-                  }}
+                  scroll={false}
                   href={`${pathname}?page=${currentPage + 1}`}
                 />
               </PaginationItem>
