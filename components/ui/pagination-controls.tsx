@@ -8,13 +8,17 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useSearchParams } from "next/navigation";
 
 export function PaginationControls() {
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page") ?? "1";
+  const itemsPerPage = searchParams.get("per_page") ?? "4";
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" />
+          <PaginationPrevious href={``} />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">1</PaginationLink>

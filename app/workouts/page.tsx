@@ -8,18 +8,16 @@ async function WorkoutsPage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const page = searchParams["page"] ?? "1";
-  const itemsPerPage = searchParams["per_page"] ?? "4";
-  const workouts = await getAllWorkouts(
-    parseInt(page as string),
-    parseInt(itemsPerPage as string)
-  );
+  const currentPage = parseInt(searchParams.page as string) || 1;
+  const workoutsPerPage = 4;
+
+  const workouts = await getAllWorkouts(currentPage, workoutsPerPage);
 
   return (
     <div className="flex flex-col items-center mx-auto p-6 space-y-4 bg-gray-100">
       <AddNewWorkoutForm />
       <WorkoutsList workouts={workouts} />
-      <PaginationControls />
+      {/* <PaginationControls currentPage={currentPage} /> */}
     </div>
   );
 }
