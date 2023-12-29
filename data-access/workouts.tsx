@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { sql } from "drizzle-orm";
+import { sql, count } from "drizzle-orm";
 import { workouts } from "@/db/schema";
 
 export async function getAllWorkouts(
@@ -7,12 +7,15 @@ export async function getAllWorkouts(
   workoutsPerPage: number
 ) {
   const offset = (currentPage - 1) * workoutsPerPage;
-
   return await db.query.workouts.findMany({
     orderBy: (workouts, { desc }) => [desc(workouts.workoutDate)],
     limit: workoutsPerPage,
     offset: offset,
   });
+}
+
+export async function getWorkoutCount() {
+  return await db.select({ count: count() }).from(workouts);
 }
 
 export async function getLastFourWorkouts() {
