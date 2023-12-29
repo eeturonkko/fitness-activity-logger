@@ -15,7 +15,8 @@ export async function getAllWorkouts(
 }
 
 export async function getWorkoutCount() {
-  return await db.select({ count: count() }).from(workouts);
+  const result = await db.select({ total: count() }).from(workouts).execute();
+  return result[0]?.total;
 }
 
 export async function getLastFourWorkouts() {

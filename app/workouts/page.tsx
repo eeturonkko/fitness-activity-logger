@@ -12,7 +12,7 @@ async function WorkoutsPage({
   const workoutsPerPage = 4;
 
   const totalWorkouts = await getWorkoutCount();
-  const totalPages = Math.ceil(Number(totalWorkouts) / workoutsPerPage);
+  const totalPages = Math.ceil(Number(totalWorkouts) / Number(workoutsPerPage));
 
   const workouts = await getAllWorkouts(currentPage, workoutsPerPage);
 
